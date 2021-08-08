@@ -9,6 +9,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -30,12 +31,12 @@ public class ConvertService {
 
     public ResponseEntity getOrigin() {
         String coindesk = this.getCoindesk();
-        return ResponseEntity.status(200).body(coindesk);
+        return ResponseEntity.status(200).contentType(MediaType.APPLICATION_JSON).body(coindesk);
     }
 
     public ResponseEntity getConvert() {
         String converted = this.convert();
-        return ResponseEntity.status(200).body(converted);
+        return ResponseEntity.status(200).contentType(MediaType.APPLICATION_JSON).body(converted);
     }
 
     public String convert() {
