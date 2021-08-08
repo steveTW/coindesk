@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: dev
+    group:
+      dev:
+        - database
+  http:
+    encoding:
+      enabled: true
+      charset: UTF-8
